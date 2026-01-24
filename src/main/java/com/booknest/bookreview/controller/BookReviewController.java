@@ -40,5 +40,6 @@ public class BookReviewController {
     @DeleteMapping("/{id}")
     public void deleteReview(@PathVariable Long id) {
         service.deleteReview(id);
+        //added new empty line
     }
 }
