@@ -5,6 +5,7 @@ import com.booknest.bookreview.exception.ResourceNotFoundException;
 import com.booknest.bookreview.model.BookReview;
 import com.booknest.bookreview.repository.BookReviewRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,7 +19,12 @@ public class ReviewServiceImpl implements BookReviewService {
     }
 
     @Override
+    @Transactional
     public BookReview createReview(ReviewRequest request) {
+        if (request == null) {
+            throw new IllegalArgumentException("ReviewRequest cannot be null");
+        }
+        
         BookReview review = new BookReview(
                 request.getBookTitle(),
                 request.getAuthor(),
@@ -35,9 +41,14 @@ public class ReviewServiceImpl implements BookReviewService {
     }
 
     @Override
+    @Transactional
     public BookReview updateReview(Long id, ReviewRequest request) {
+        if (request == null) {
+            throw new IllegalArgumentException("ReviewRequest cannot be null");
+        }
+        
         BookReview review = repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Review not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Review not found with id: " + id));
 
         review.setBookTitle(request.getBookTitle());
         review.setAuthor(request.getAuthor());
@@ -49,9 +60,10 @@ public class ReviewServiceImpl implements BookReviewService {
     }
 
     @Override
+    @Transactional
     public void deleteReview(Long id) {
         BookReview review = repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Review not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Review not found with id: " + id));
         repository.delete(review);
     }
 }

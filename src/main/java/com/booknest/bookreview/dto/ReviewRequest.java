@@ -6,23 +6,23 @@ import jakarta.validation.constraints.NotBlank;
 
 public class ReviewRequest {
 
-    @NotBlank
+    @NotBlank(message = "Book title is required")
     private String bookTitle;
 
-    @NotBlank
+    @NotBlank(message = "Author is required")
     private String author;
 
-    @NotBlank
+    @NotBlank(message = "Genre is required")
     private String genre;
 
-    @Min(1)
-    @Max(5)
+    @Min(value = 1, message = "Rating must be at least 1")
+    @Max(value = 5, message = "Rating must be at most 5")
     private int rating;
 
-    @NotBlank
+    @NotBlank(message = "Review text is required")
     private String reviewText;
 
-    // ✅ Getters
+    // Getters
     public String getBookTitle() {
         return bookTitle;
     }
@@ -43,7 +43,7 @@ public class ReviewRequest {
         return reviewText;
     }
 
-    // ✅ Setters
+    // Setters
     public void setBookTitle(String bookTitle) {
         this.bookTitle = bookTitle;
     }
@@ -62,5 +62,16 @@ public class ReviewRequest {
 
     public void setReviewText(String reviewText) {
         this.reviewText = reviewText;
+    }
+
+    @Override
+    public String toString() {
+        return "ReviewRequest{" +
+                "bookTitle='" + bookTitle + '\'' +
+                ", author='" + author + '\'' +
+                ", genre='" + genre + '\'' +
+                ", rating=" + rating +
+                ", reviewText='" + reviewText + '\'' +
+                '}';
     }
 }

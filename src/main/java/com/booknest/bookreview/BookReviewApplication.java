@@ -4,10 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BookreviewApplication {
-
+public class BookReviewApplication {
     public static void main(String[] args) {
-        SpringApplication.run(BookreviewApplication.class, args);
+        SpringApplication.run(BookReviewApplication.class, args);
     }
-
 }
