@@ -8,19 +8,19 @@ import lombok.Data;
 @Data
 public class ReviewRequest {
 
-    @NotBlank(message = "Book title is required")
+    @NotBlank
     private String bookTitle;
 
-    @NotBlank(message = "Author is required")
+    @NotBlank
     private String author;
 
-    @NotBlank(message = "Genre is required")
+    @NotBlank
     private String genre;
 
     @Min(1)
     @Max(5)
     private int rating;
 
-    @NotBlank(message = "Review text is required")
+    @NotBlank
     private String reviewText;
 }
