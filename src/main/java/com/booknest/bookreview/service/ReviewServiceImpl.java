@@ -20,20 +20,20 @@ public class ReviewServiceImpl implements BookReviewService {
 
     @Override
     @Transactional
-   @Override
-public BookReview createReview(ReviewRequest request) {
-
-    BookReview review = new BookReview(
-            null,
-            request.getBookTitle(),
-            request.getAuthor(),
-            request.getGenre(),
-            request.getRating(),      // MUST be int
-            request.getReviewText()
-    );
-
-    return repository.save(review);
-}
+    public BookReview createReview(ReviewRequest request) {
+        if (request == null) {
+            throw new IllegalArgumentException("ReviewRequest cannot be null");
+        }
+        
+        BookReview review = new BookReview(
+                request.getBookTitle(),
+                request.getAuthor(),
+                request.getGenre(),
+                request.getRating(),
+                request.getReviewText()
+        );
+        return repository.save(review);
+    }
 
     @Override
     public List<BookReview> getAllReviews() {
@@ -42,20 +42,22 @@ public BookReview createReview(ReviewRequest request) {
 
     @Override
     @Transactional
-   @Override
-public BookReview updateReview(Long id, ReviewRequest request) {
+    public BookReview updateReview(Long id, ReviewRequest request) {
+        if (request == null) {
+            throw new IllegalArgumentException("ReviewRequest cannot be null");
+        }
+        
+        BookReview review = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Review not found with id: " + id));
 
-    BookReview review = repository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Review not found"));
+        review.setBookTitle(request.getBookTitle());
+        review.setAuthor(request.getAuthor());
+        review.setGenre(request.getGenre());
+        review.setRating(request.getRating());
+        review.setReviewText(request.getReviewText());
 
-    review.setBookTitle(request.getBookTitle());
-    review.setAuthor(request.getAuthor());
-    review.setGenre(request.getGenre());
-    review.setRating(request.getRating());
-    review.setReviewText(request.getReviewText());
-
-    return repository.save(review);
-}
+        return repository.save(review);
+    }
 
     @Override
     @Transactional
