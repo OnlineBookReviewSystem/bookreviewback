@@ -35,6 +35,7 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         config.setAllowedOrigins(List.of(
+                "https://bookreview-frontend-app42.azurewebsites.net",
                 "https://www.onlinebookreviewsystem-manasha.me",
                 "http://localhost:3000"
         ));
