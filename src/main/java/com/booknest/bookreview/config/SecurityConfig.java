@@ -30,6 +30,7 @@ public class SecurityConfig {
     }
 
     @Bean
+
     public CorsConfigurationSource corsConfigurationSource() {
 
         CorsConfiguration config = new CorsConfiguration();
@@ -37,7 +38,8 @@ public class SecurityConfig {
         config.setAllowedOrigins(List.of(
                 "https://bookreview-frontend-app42.azurewebsites.net",
                 "https://www.onlinebookreviewsystem-manasha.me",
-                "http://localhost:3000"
+                "http://localhost:3000",
+                "https://bookreview-frontend-container.calmsmoke-fe071420.southeastasia.azurecontainerapps.io"
         ));
 
         config.setAllowedMethods(List.of(
