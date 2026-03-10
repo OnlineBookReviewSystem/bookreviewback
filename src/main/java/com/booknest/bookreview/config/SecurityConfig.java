@@ -21,6 +21,7 @@ public class SecurityConfig {
         http
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .csrf(csrf -> csrf.disable())
+                .headers(headers -> headers.frameOptions(frame -> frame.disable()))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/**").permitAll()
                         .anyRequest().authenticated()
@@ -37,6 +38,7 @@ public class SecurityConfig {
         config.setAllowedOrigins(List.of(
                 "https://bookreview-frontend-app42.azurewebsites.net",
                 "https://www.onlinebookreviewsystem-manasha.me",
+                "https://bookreview-manasha.vercel.app",
                 "http://localhost:3000"
         ));
 
