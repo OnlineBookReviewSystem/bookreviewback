@@ -126,3 +126,6 @@ This method is simple and efficient for deploying frontend applications and does
 <img width="1919" height="863" alt="Screenshot 2026-03-19 212937" src="https://github.com/user-attachments/assets/fa1e8a2b-3cec-4793-808c-b9cb1f122a7b" />
 <img width="1920" height="1080" alt="azuredeploy" src="https://github.com/user-attachments/assets/7dfd9f44-4664-42d4-a5b1-a35f3ad91058" />
 
+LINKS:
+APP SERVICE <--  https://bookreview-frontend-app42.azurewebsites.net/
+CONTAINER APPS <--  https://bookreview-frontend-container.calmsmoke-fe071420.southeastasia.azurecontainerapps.io/
