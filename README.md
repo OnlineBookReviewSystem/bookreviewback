@@ -110,6 +110,19 @@ I am ready to demonstrate this during the DevOps class.
 Explaining Challenges Faced
 I am prepared to explain all challenges faced during: Frontend–backend integration,CORS configuration,Dockerization,CI/CD pipeline setup,Cloud deployment,Domain and DNS configuration
 
-and how each issue was resolved.Frontend Build Screenshot
+and how each issue was resolved.
+Frontend Build Screenshot<img width="1920" height="1080" alt="frontend-build" src="https://github.com/user-attachments/assets/a60e4b44-d1b1-467f-85e7-21b610f11418" />
 
-Backend Build Screenshot
+
+Backend Build Screenshot<img width="1920" height="1080" alt="backend-build" src="https://github.com/user-attachments/assets/ab5908c0-ac73-423c-83ea-4d43454f9266" />
+The frontend of the Online Book Review System was deployed using Microsoft Azure App Service. This service allows hosting web applications without managing servers or infrastructure.
+
+First, the React application was built using npm to generate the production-ready files. These files were then deployed to Azure App Service.
+
+Azure provides a public URL which can be used to access the application from anywhere. After making UI changes, the application was redeployed, and the updated version was successfully reflected in the new link.
+
+This method is simple and efficient for deploying frontend applications and does not require Docker.
+
+<img width="1919" height="863" alt="Screenshot 2026-03-19 212937" src="https://github.com/user-attachments/assets/fa1e8a2b-3cec-4793-808c-b9cb1f122a7b" />
+<img width="1920" height="1080" alt="azuredeploy" src="https://github.com/user-attachments/assets/7dfd9f44-4664-42d4-a5b1-a35f3ad91058" />
+
